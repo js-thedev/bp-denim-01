@@ -41,9 +41,6 @@ p {
   display: flex;
 }
 
-.inner-image-container {
-}
-
 .inner-image-wrapper {
   width: 100%;
   height: 75vw;
