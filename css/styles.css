@@ -1,40 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap');
+
+@font-face {
+  font-family: 'Heading Now';
+  src: url('../fonts/HeadingNowTrial-54Regular.ttf') format('truetype');
+}
+
+/* all components */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and borders are included in the width calculation */
+}
 
 /* common components */
 
 h1 {
-  font-size: 2.7rem;
-  font-family: 'Noto Serif';
+  font-size: 5rem;
+  font-family: 'Heading Now';
+  letter-spacing: 0.04em;
 }
 
 h2 {
-  font-size: 2rem;
-  font-family: 'Noto Serif';
+  font-size: 3.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
+  margin: 0 0 3vh 0;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p {
-  font-size: 1.15rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.25rem;
+  font-family: 'Noto Serif', serif;
 }
 
 .wide-image-wrapper {
-  width: 100%;
-  height: 70vw;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 
 .wide-image-wrapper img {
+  width: 100%;
   height: 100%;
-  width: auto;
-  display: block;
   object-fit: cover;
-  object-position: center;
 }
 
 .content-container {
@@ -55,26 +68,43 @@ p {
   margin: 0 0 0 2vw;
 }
 
+footer {
+  text-align: center;
+  padding: 60px 0 30px 0;
+}
+
 /* sections */
 
 .header-container {
   width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 0 3vh 0;
 }
 
 .header-container header {
-  display: flexbox;
+  width: 100%;
+  position: absolute;
+  top: 50%; /* Centers vertically */
+  left: 50%; /* Centers horizontally */
+  transform: translate(-50%, -50%); /* Adjusts position to center */
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  width: 60%;
+  color: white; /* Text color */
   font-size: clamp(1rem, calc(1.4rem + 2vw), 1.5rem);
+  padding: 0 2vw 0 2vw;
+}
+
+.header-container .wide-image-wrapper img {
+  /* object-position: -78vw; adjusted for the used image */
+  object-position: center;
 }
 
 .header-container p {
-  font-size: 1.3rem;
+  font-size: 2rem;
 }
 
 .washing-container {
@@ -82,11 +112,16 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 3vh 0;
+  margin: 10vh 0 0 0;
 }
 
 .washing-container section {
-  width: 65%;
+  width: 100%;
+  padding: 0 8vw 0 8vw;
+}
+
+.washing-container h3 {
+  margin: 4vh 0 2vh 0;
 }
 
 .drying-container {
@@ -105,7 +140,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 0 3vh 0;
+  margin: 10vh 0 0 0;
 }
 
 .storage-container {
@@ -114,12 +149,12 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 0 3vh 0;
+  margin: 10vh 0 0 0;
 }
 
 .storage-container section {
-  display: flexbox;
-  width: 65%;
+  width: 100%;
+  padding: 0 5vw 0 5vw;
 }
 
 .purpose-container {
@@ -127,25 +162,20 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10vh 0 0 0;
 }
 
 .purpose-container section {
-  width: 65%;
+  width: 100%;
+  padding: 0 5vw 0 5vw;
 }
 
 /* Larger Screens */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   /* common components */
 
-  .wide-image-wrapper {
-    height: 35vw;
-  }
-
   .wide-image-wrapper img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
     object-position: center;
   }
 
@@ -155,11 +185,31 @@ p {
 
   /* sections */
 
+  .header-container header {
+    width: 60%;
+  }
+
+  .header-container p {
+    font-size: 1.3rem;
+  }
+
+  .washing-container section {
+    width: 65%;
+  }
+
   .drying-container .title-container {
     width: 100%;
   }
 
   .drying-container section {
+    width: 65%;
+  }
+
+  .storage-container section {
+    width: 65%;
+  }
+
+  .purpose-container section {
     width: 65%;
   }
 }
